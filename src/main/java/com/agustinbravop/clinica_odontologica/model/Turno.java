@@ -1,7 +1,9 @@
 package com.agustinbravop.clinica_odontologica.model;
 
+import javax.persistence.Entity;
 import java.util.Date;
 
+@Entity
 public class Turno {
     private Integer id;
     private Paciente paciente;

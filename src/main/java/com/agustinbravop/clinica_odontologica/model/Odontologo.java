@@ -1,5 +1,8 @@
 package com.agustinbravop.clinica_odontologica.model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Odontologo {
     private Integer id;
     private String nombre;
