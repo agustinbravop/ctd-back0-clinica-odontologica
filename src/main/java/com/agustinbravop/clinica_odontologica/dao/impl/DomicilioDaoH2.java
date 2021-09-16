@@ -3,6 +3,7 @@ package com.agustinbravop.clinica_odontologica.dao.impl;
 import com.agustinbravop.clinica_odontologica.dao.IDao;
 import com.agustinbravop.clinica_odontologica.dao.config.ConfiguracionJDBC;
 import com.agustinbravop.clinica_odontologica.model.Domicilio;
+import org.apache.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -15,6 +16,7 @@ import java.util.Optional;
 
 public class DomicilioDaoH2 implements IDao<Domicilio> {
     private final ConfiguracionJDBC configuracionJDBC;
+    private static final Logger logger = Logger.getLogger(DomicilioDaoH2.class);
 
     public DomicilioDaoH2(ConfiguracionJDBC configuracionJDBC) {
         this.configuracionJDBC = configuracionJDBC;
@@ -43,7 +45,7 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
             conn.close();
         }
         catch (SQLException throwables) {
-            throwables.printStackTrace();
+            logger.debug("SQLException: ", throwables);
         }
 
         return domicilio;
@@ -68,12 +70,6 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
             throwables.printStackTrace();
         }
         return Optional.ofNullable(domicilio);
-    }
-
-    @Override
-    public void eliminar(Integer id) {
-        String query = String.format("DELETE FROM domicilios where id = %s", id);
-        ejecutarQuery(query);
     }
 
     @Override
@@ -113,13 +109,20 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
         return domicilio;
     }
 
-    private Domicilio getDomicilioFromResultSet(ResultSet result) throws SQLException {
-        Integer id = result.getInt("id");
-        String calle = result.getString("calle");
-        String numero = result.getString("numero");
-        String localidad = result.getString("localidad");
-        String provincia = result.getString("provincia");
-        return new Domicilio(id, calle, numero, localidad, provincia);
+    @Override
+    public void eliminar(Integer id) {
+        String query = String.format("DELETE FROM domicilios where id = %s", id);
+        ejecutarQuery(query);
+    }
+
+    private Domicilio getDomicilioFromResultSet(ResultSet rs) throws SQLException {
+        return new Domicilio(
+                rs.getInt("id"),
+                rs.getString("calle"),
+                rs.getString("numero"),
+                rs.getString("localidad"),
+                rs.getString("provincia")
+        );
     }
 
     private void ejecutarQuery(String query) {

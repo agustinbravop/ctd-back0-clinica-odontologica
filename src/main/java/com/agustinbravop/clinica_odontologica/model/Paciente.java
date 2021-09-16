@@ -3,6 +3,7 @@ package com.agustinbravop.clinica_odontologica.model;
 import javax.persistence.Entity;
 import java.util.Date;
 
+
 @Entity
 public class Paciente {
     private Integer id;
@@ -25,7 +26,6 @@ public class Paciente {
     }
 
     public Paciente(String nombre, String apellido, String dni, Date fechaIngreso, Domicilio domicilio) {
-
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
