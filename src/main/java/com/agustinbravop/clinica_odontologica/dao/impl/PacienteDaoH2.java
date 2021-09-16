@@ -10,7 +10,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,7 +41,7 @@ public class PacienteDaoH2 implements IDao<Paciente> {
             stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
             ResultSet rs = stmt.getGeneratedKeys();
             if (rs.next())
-                paciente.setId(rs.getInt(1));
+                paciente.setId(rs.getLong(1));
 
             rs.close();
             stmt.close();
@@ -126,7 +125,7 @@ public class PacienteDaoH2 implements IDao<Paciente> {
     }
 
     private Paciente getPacienteFromResultSet(ResultSet rs) throws SQLException {
-        return new Paciente(rs.getInt("id"),
+        return new Paciente(rs.getLong("id"),
                 rs.getString("nombre"),
                 rs.getString("apellido"),
                 rs.getString("dni"),

@@ -6,7 +6,7 @@ import java.util.Date;
 
 @Entity
 public class Paciente {
-    private Integer id;
+    private Long id;
     private String nombre;
     private String apellido;
     private String dni;
@@ -16,7 +16,7 @@ public class Paciente {
     public Paciente() {
     }
 
-    public Paciente(Integer id, String nombre, String apellido, String dni, Date fechaIngreso, Domicilio domicilio) {
+    public Paciente(Long id, String nombre, String apellido, String dni, Date fechaIngreso, Domicilio domicilio) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -33,11 +33,11 @@ public class Paciente {
         this.domicilio = domicilio;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

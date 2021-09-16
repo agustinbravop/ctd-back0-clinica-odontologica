@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class OdontologoDaoH2 implements IDao<Odontologo> {
-    private ConfiguracionJDBC configuracionJDBC;
+    private final ConfiguracionJDBC configuracionJDBC;
     final static Logger logger = Logger.getLogger(OdontologoDaoH2.class);
 
     public OdontologoDaoH2(ConfiguracionJDBC configuracionJDBC) {
@@ -36,7 +36,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
             stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
             ResultSet rs = stmt.getGeneratedKeys();
             if (rs.next())
-                odontologo.setId(rs.getInt(1));
+                odontologo.setId(rs.getLong(1));
 
             rs.close();
             stmt.close();
@@ -113,7 +113,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 
     private Odontologo getOdontologoFromResultSet(ResultSet rs) throws SQLException {
         return new Odontologo(
-                rs.getInt("id"),
+                rs.getLong("id"),
                 rs.getString("nombre"),
                 rs.getString("apellido"),
                 rs.getInt("matricula")

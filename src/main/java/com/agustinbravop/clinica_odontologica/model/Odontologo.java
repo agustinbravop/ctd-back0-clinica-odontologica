@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 
 @Entity
 public class Odontologo {
-    private Integer id;
+    private Long id;
     private String nombre;
     private String apellido;
     private Integer matricula;
@@ -19,7 +19,7 @@ public class Odontologo {
         this.matricula = matricula;
     }
 
-    public Odontologo(Integer id, String nombre, String apellido, Integer matricula) {
+    public Odontologo(Long id, String nombre, String apellido, Integer matricula) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -50,11 +50,11 @@ public class Odontologo {
         this.matricula = matricula;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 }

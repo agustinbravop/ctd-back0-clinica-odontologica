@@ -38,7 +38,7 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
             ResultSet rs = stmt.getGeneratedKeys();
 
             if(rs.next())
-                domicilio.setId(rs.getInt(1));
+                domicilio.setId(rs.getLong(1));
 
             rs.close();
             stmt.close();
@@ -117,7 +117,7 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 
     private Domicilio getDomicilioFromResultSet(ResultSet rs) throws SQLException {
         return new Domicilio(
-                rs.getInt("id"),
+                rs.getLong("id"),
                 rs.getString("calle"),
                 rs.getString("numero"),
                 rs.getString("localidad"),
