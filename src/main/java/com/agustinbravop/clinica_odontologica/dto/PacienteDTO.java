@@ -9,13 +9,13 @@ public class PacienteDTO {
     private String dni;
     private Date fechaIngreso;
 
-    // Reemplazan al Domicilio domicilio
+    // Entre los 4 reemplazan al Domicilio domicilio de Paciente
     private String calle;
     private String domicilioNumero;
     private String localidad;
     private String provincia;
 
-    public PacienteDTO(){
+    public PacienteDTO() {
     }
 
     public Long getId() {

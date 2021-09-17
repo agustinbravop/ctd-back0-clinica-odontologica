@@ -13,8 +13,7 @@ CREATE TABLE IF NOT EXISTS paciente(
     dni varchar(255),
     fecha_ingreso TIMESTAMP WITHOUT TIME ZONE,
     CONSTRAINT fk_domicilio
-        FOREIGN KEY(domicilio_id)
-        REFERENCES domicilio(id)
+        FOREIGN KEY(domicilio_id) REFERENCES domicilio(id)
 );
 
 CREATE TABLE IF NOT EXISTS odontologo(
