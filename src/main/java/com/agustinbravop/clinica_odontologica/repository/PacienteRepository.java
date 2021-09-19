@@ -18,4 +18,7 @@ public interface PacienteRepository extends JpaRepository<Paciente, Long> {
 
     @Override
     void delete(Paciente domicilio);
+
+    @Override
+    void deleteById(Long id);
 }

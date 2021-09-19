@@ -20,4 +20,7 @@ public interface OdontologoRepository extends JpaRepository<Odontologo, Long> {
 
     @Override
     void delete(Odontologo domicilio);
+
+    @Override
+    void deleteById(Long id);
 }

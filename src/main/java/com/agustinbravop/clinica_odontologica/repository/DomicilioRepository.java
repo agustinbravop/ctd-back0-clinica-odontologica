@@ -21,4 +21,7 @@ public interface DomicilioRepository extends JpaRepository<Domicilio, Long> {
 
     @Override
     void delete(Domicilio domicilio);
+
+    @Override
+    void deleteById(Long id);
 }
