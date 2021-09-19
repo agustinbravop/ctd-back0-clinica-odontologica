@@ -1,9 +1,13 @@
 package com.agustinbravop.clinica_odontologica.model;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
+@Table
 public class Odontologo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
     private String nombre;
     private String apellido;

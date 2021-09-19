@@ -1,14 +1,24 @@
 package com.agustinbravop.clinica_odontologica.model;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table
 public class Turno {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Long id;
+
+    private Date date; /* YYYY-MM-DD */
+
+    @OneToMany
+    @JoinColumn(name = "paciente_id")
     private Paciente paciente;
+    @OneToMany
+    @JoinColumn(name = "odontologo_id")
     private Odontologo odontologo;
-    private Date date; /*2021-09-10*/
 
     public Turno(Long id, Paciente paciente, Odontologo odontologo, Date date) {
         this.id = id;

@@ -1,16 +1,23 @@
 package com.agustinbravop.clinica_odontologica.model;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.Date;
 
 
 @Entity
+@Table
 public class Paciente {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
     private String nombre;
     private String apellido;
     private String dni;
     private Date fechaIngreso;
+
+    @ManyToOne
+    @JoinColumn(name = "domicilio_id")
     private Domicilio domicilio;
 
     public Paciente() {
