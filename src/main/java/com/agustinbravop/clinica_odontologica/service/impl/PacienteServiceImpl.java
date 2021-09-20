@@ -1,7 +1,6 @@
 package com.agustinbravop.clinica_odontologica.service.impl;
 
 import com.agustinbravop.clinica_odontologica.dto.PacienteDTO;
-import com.agustinbravop.clinica_odontologica.dto.PacienteDTO;
 import com.agustinbravop.clinica_odontologica.model.Paciente;
 import com.agustinbravop.clinica_odontologica.repository.PacienteRepository;
 import com.agustinbravop.clinica_odontologica.service.PacienteService;
@@ -10,6 +9,7 @@ import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -55,6 +55,9 @@ public class PacienteServiceImpl implements PacienteService {
     @Override
     public PacienteDTO create(PacienteDTO pacienteDTO) {
         Paciente paciente = mapper.map(pacienteDTO, Paciente.class);
+        if(paciente.getFechaIngreso() != null){
+            paciente.setFechaIngreso(new Date());
+        }
         paciente = pacienteRepository.save(paciente);
         return mapper.map(paciente, PacienteDTO.class);
     }

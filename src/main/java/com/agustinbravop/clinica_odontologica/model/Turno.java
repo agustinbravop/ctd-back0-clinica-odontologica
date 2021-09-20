@@ -13,10 +13,10 @@ public class Turno {
 
     private Date date; /* YYYY-MM-DD */
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "paciente_id")
     private Paciente paciente;
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "odontologo_id")
     private Odontologo odontologo;
 
