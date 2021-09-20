@@ -1,6 +1,8 @@
 package com.agustinbravop.clinica_odontologica.dto;
 
-public class OdontologoDTO {
+import java.io.Serializable;
+
+public class OdontologoDTO implements Serializable {
     private Long id;
     private String nombre;
     private String apellido;

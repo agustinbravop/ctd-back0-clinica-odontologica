@@ -1,8 +1,9 @@
 package com.agustinbravop.clinica_odontologica.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class PacienteDTO {
+public class PacienteDTO implements Serializable {
     private Long id;
     private String nombre;
     private String apellido;
