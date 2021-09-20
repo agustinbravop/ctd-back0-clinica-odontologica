@@ -16,5 +16,7 @@ public interface PacienteService {
 
     void delete(PacienteDTO pacienteDTO);
 
+    void deleteById(Long id);
+
     PacienteDTO create(PacienteDTO pacienteDTO);
 }

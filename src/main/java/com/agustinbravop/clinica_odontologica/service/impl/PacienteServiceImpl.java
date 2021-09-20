@@ -48,6 +48,11 @@ public class PacienteServiceImpl implements PacienteService {
     }
 
     @Override
+    public void deleteById(Long id) {
+        pacienteRepository.deleteById(id);
+    }
+
+    @Override
     public PacienteDTO create(PacienteDTO pacienteDTO) {
         Paciente paciente = mapper.map(pacienteDTO, Paciente.class);
         paciente = pacienteRepository.save(paciente);

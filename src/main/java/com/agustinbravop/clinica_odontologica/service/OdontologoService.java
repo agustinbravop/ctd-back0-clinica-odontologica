@@ -16,5 +16,7 @@ public interface OdontologoService {
 
     void delete(OdontologoDTO odontologoDTO);
 
+    void deleteById(Long id);
+
     OdontologoDTO create(OdontologoDTO odontologoDTO);
 }

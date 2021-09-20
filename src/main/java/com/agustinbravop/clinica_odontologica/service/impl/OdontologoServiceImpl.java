@@ -48,6 +48,11 @@ public class OdontologoServiceImpl implements OdontologoService {
     }
 
     @Override
+    public void deleteById(Long id) {
+        odontologoRepository.deleteById(id);
+    }
+
+    @Override
     public OdontologoDTO create(OdontologoDTO odontologoDTO) {
         Odontologo odontologo = mapper.map(odontologoDTO, Odontologo.class);
         odontologo = odontologoRepository.save(odontologo);
