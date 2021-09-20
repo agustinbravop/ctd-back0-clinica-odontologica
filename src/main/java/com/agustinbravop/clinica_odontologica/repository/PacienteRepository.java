@@ -1,6 +1,5 @@
 package com.agustinbravop.clinica_odontologica.repository;
 
-import com.agustinbravop.clinica_odontologica.model.Domicilio;
 import com.agustinbravop.clinica_odontologica.model.Paciente;
 import org.springframework.data.jpa.repository.JpaRepository;
 

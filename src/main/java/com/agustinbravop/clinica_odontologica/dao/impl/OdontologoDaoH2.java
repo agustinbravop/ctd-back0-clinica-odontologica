@@ -3,7 +3,6 @@ package com.agustinbravop.clinica_odontologica.dao.impl;
 import com.agustinbravop.clinica_odontologica.dao.IDao;
 import com.agustinbravop.clinica_odontologica.dao.config.ConfiguracionJDBC;
 import com.agustinbravop.clinica_odontologica.model.Odontologo;
-
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;

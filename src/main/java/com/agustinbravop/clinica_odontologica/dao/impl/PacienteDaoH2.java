@@ -4,12 +4,13 @@ import com.agustinbravop.clinica_odontologica.dao.IDao;
 import com.agustinbravop.clinica_odontologica.dao.config.ConfiguracionJDBC;
 import com.agustinbravop.clinica_odontologica.model.Paciente;
 import org.apache.log4j.Logger;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 

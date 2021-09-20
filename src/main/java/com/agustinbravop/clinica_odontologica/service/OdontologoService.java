@@ -1,7 +1,6 @@
 package com.agustinbravop.clinica_odontologica.service;
 
 import com.agustinbravop.clinica_odontologica.dto.OdontologoDTO;
-import com.agustinbravop.clinica_odontologica.model.Odontologo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
