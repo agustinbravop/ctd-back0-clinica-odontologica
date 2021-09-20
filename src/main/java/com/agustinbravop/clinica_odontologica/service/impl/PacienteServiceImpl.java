@@ -59,7 +59,6 @@ public class PacienteServiceImpl implements PacienteService {
     @Override
     public PacienteDTO create(PacienteDTO pacienteDTO) {
         Paciente paciente = mapper.map(pacienteDTO, Paciente.class);
-        System.out.println(paciente);
         if(paciente.getFechaIngreso() == null){
             paciente.setFechaIngreso(new Date());
         }

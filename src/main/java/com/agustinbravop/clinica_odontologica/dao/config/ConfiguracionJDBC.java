@@ -7,10 +7,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConfiguracionJDBC {
-    private String jdbcDriver;
-    private String dbUrl;
-    private String user;
-    private String password;
+    private final String jdbcDriver;
+    private final String dbUrl;
+    private final String user;
+    private final String password;
 
     public ConfiguracionJDBC() {
         this.jdbcDriver = "org.h2.Driver";

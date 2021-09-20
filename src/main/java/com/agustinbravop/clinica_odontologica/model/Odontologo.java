@@ -6,8 +6,8 @@ import javax.persistence.*;
 @Table
 public class Odontologo {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
     private Long id;
     private String nombre;
     private String apellido;

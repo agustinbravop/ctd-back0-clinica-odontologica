@@ -8,8 +8,8 @@ import java.util.Date;
 @Table
 public class Paciente {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
     private Long id;
     private String nombre;
     private String apellido;
