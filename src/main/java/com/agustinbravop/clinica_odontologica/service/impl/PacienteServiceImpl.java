@@ -41,6 +41,7 @@ public class PacienteServiceImpl implements PacienteService {
     @Override
     public PacienteDTO update(PacienteDTO pacienteDTO) {
         Paciente paciente = mapper.map(pacienteDTO, Paciente.class);
+        domicilioRepository.save(paciente.getDomicilio());
         paciente = pacienteRepository.save(paciente);
         return mapper.map(paciente, PacienteDTO.class);
     }

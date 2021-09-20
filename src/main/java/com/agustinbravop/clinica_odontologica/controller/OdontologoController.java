@@ -38,7 +38,7 @@ public class OdontologoController {
         return ResponseEntity.ok(odontologoDTO);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/remove/{id}")
     public ResponseEntity<OdontologoDTO> deleteOdontologo(@PathVariable Long id){
         odontologoService.deleteById(id);
         return ResponseEntity.noContent().build();

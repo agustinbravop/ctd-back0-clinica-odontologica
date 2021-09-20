@@ -14,6 +14,14 @@ public class PacienteDTO implements Serializable {
     public PacienteDTO() {
     }
 
+    public DomicilioDTO getDomicilio() {
+        return domicilio;
+    }
+
+    public void setDomicilio(DomicilioDTO domicilio) {
+        this.domicilio = domicilio;
+    }
+
     public Long getId() {
         return id;
     }

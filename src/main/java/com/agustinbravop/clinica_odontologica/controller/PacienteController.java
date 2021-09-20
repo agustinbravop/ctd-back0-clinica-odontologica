@@ -38,8 +38,8 @@ public class PacienteController {
         return ResponseEntity.ok(pacienteDTO);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<PacienteDTO> deletePaciente(@PathVariable Long id){
+    @DeleteMapping("/remove/{id}")
+    public ResponseEntity<PacienteDTO> removePaciente(@PathVariable Long id){
         pacienteService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
