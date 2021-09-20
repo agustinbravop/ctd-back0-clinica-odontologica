@@ -9,12 +9,7 @@ public class PacienteDTO implements Serializable {
     private String apellido;
     private String dni;
     private Date fechaIngreso;
-
-    // Entre los 4 reemplazan al Domicilio domicilio de Paciente
-    private String calle;
-    private String domicilioNumero;
-    private String localidad;
-    private String provincia;
+    private DomicilioDTO domicilio;
 
     public PacienteDTO() {
     }
@@ -57,37 +52,5 @@ public class PacienteDTO implements Serializable {
 
     public void setFechaIngreso(Date fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
-    }
-
-    public String getCalle() {
-        return calle;
-    }
-
-    public void setCalle(String calle) {
-        this.calle = calle;
-    }
-
-    public String getDomicilioNumero() {
-        return domicilioNumero;
-    }
-
-    public void setDomicilioNumero(String domicilioNumero) {
-        this.domicilioNumero = domicilioNumero;
-    }
-
-    public String getLocalidad() {
-        return localidad;
-    }
-
-    public void setLocalidad(String localidad) {
-        this.localidad = localidad;
-    }
-
-    public String getProvincia() {
-        return provincia;
-    }
-
-    public void setProvincia(String provincia) {
-        this.provincia = provincia;
     }
 }

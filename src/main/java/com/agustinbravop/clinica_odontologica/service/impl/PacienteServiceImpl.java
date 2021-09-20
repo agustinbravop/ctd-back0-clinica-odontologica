@@ -2,6 +2,7 @@ package com.agustinbravop.clinica_odontologica.service.impl;
 
 import com.agustinbravop.clinica_odontologica.dto.PacienteDTO;
 import com.agustinbravop.clinica_odontologica.model.Paciente;
+import com.agustinbravop.clinica_odontologica.repository.DomicilioRepository;
 import com.agustinbravop.clinica_odontologica.repository.PacienteRepository;
 import com.agustinbravop.clinica_odontologica.service.PacienteService;
 import org.modelmapper.ModelMapper;
@@ -17,6 +18,8 @@ public class PacienteServiceImpl implements PacienteService {
 
     @Autowired
     private PacienteRepository pacienteRepository;
+    @Autowired
+    private DomicilioRepository domicilioRepository;
     @Autowired
     private ModelMapper mapper;
 
@@ -59,6 +62,7 @@ public class PacienteServiceImpl implements PacienteService {
         if(paciente.getFechaIngreso() == null){
             paciente.setFechaIngreso(new Date());
         }
+        domicilioRepository.save(paciente.getDomicilio());
         paciente = pacienteRepository.save(paciente);
         return mapper.map(paciente, PacienteDTO.class);
     }
