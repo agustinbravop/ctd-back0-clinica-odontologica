@@ -15,31 +15,31 @@ public class PacienteController {
     private PacienteService pacienteService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<PacienteDTO> getPaciente(@PathVariable("id") Long id){
+    public ResponseEntity<PacienteDTO> getPaciente(@PathVariable("id") Long id) {
         PacienteDTO pacienteDTO = pacienteService.getOne(id);
         return ResponseEntity.ok(pacienteDTO);
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<PacienteDTO>> getAllPacientes(){
+    public ResponseEntity<List<PacienteDTO>> getAllPacientes() {
         List<PacienteDTO> pacienteDTOs = pacienteService.getAll();
         return ResponseEntity.ok(pacienteDTOs);
     }
 
     @PostMapping("/add")
-    public ResponseEntity<PacienteDTO> addPaciente(@RequestBody PacienteDTO pacienteDTO){
+    public ResponseEntity<PacienteDTO> addPaciente(@RequestBody PacienteDTO pacienteDTO) {
         pacienteDTO = pacienteService.create(pacienteDTO);
         return ResponseEntity.ok(pacienteDTO);
     }
 
     @PutMapping("/modify")
-    public ResponseEntity<PacienteDTO> modifyPaciente(@RequestBody PacienteDTO pacienteDTO){
+    public ResponseEntity<PacienteDTO> modifyPaciente(@RequestBody PacienteDTO pacienteDTO) {
         pacienteDTO = pacienteService.update(pacienteDTO);
         return ResponseEntity.ok(pacienteDTO);
     }
 
     @DeleteMapping("/remove/{id}")
-    public ResponseEntity<PacienteDTO> removePaciente(@PathVariable Long id){
+    public ResponseEntity<PacienteDTO> removePaciente(@PathVariable Long id) {
         pacienteService.deleteById(id);
         return ResponseEntity.noContent().build();
     }

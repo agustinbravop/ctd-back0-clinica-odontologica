@@ -30,7 +30,8 @@ public class OdontologoServiceImpl implements OdontologoService {
         List<Odontologo> odontologos = odontologoRepository.findAll();
         return mapper.map(
                 odontologos,
-                new TypeToken<List<OdontologoDTO>>() {}.getType()
+                new TypeToken<List<OdontologoDTO>>() {
+                }.getType()
         );
     }
 

@@ -27,7 +27,7 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 
     @Override
     public Paciente guardar(Paciente paciente) {
-        paciente.setDomicilio( domicilioDaoH2.guardar(paciente.getDomicilio()) );
+        paciente.setDomicilio(domicilioDaoH2.guardar(paciente.getDomicilio()));
         String query = String.format(
                 "INSERT INTO pacientes(nombre,apellido,dni,fecha_ingreso,domicilio_id) VALUES('%s','%s','%s','%s','%s')",
                 paciente.getNombre(),
@@ -47,8 +47,7 @@ public class PacienteDaoH2 implements IDao<Paciente> {
             rs.close();
             stmt.close();
             conn.close();
-        }
-        catch (SQLException throwables) {
+        } catch (SQLException throwables) {
             logger.debug("SQLException: ", throwables);
         }
         return paciente;
@@ -69,14 +68,12 @@ public class PacienteDaoH2 implements IDao<Paciente> {
             rs.close();
             stmt.close();
             conn.close();
-        }
-        catch (SQLException throwables) {
+        } catch (SQLException throwables) {
             logger.debug("SQLException: ", throwables);
         }
 
         return Optional.ofNullable(paciente);
     }
-
 
 
     @Override
@@ -95,8 +92,7 @@ public class PacienteDaoH2 implements IDao<Paciente> {
             rs.close();
             stmt.close();
             conn.close();
-        }
-        catch (SQLException throwables) {
+        } catch (SQLException throwables) {
             logger.debug("SQLException: ", throwables);
         }
 
@@ -142,8 +138,7 @@ public class PacienteDaoH2 implements IDao<Paciente> {
             stmt.executeUpdate(query);
             stmt.close();
             conn.close();
-        }
-        catch (SQLException throwables) {
+        } catch (SQLException throwables) {
             logger.debug("SQLException: ", throwables);
         }
     }

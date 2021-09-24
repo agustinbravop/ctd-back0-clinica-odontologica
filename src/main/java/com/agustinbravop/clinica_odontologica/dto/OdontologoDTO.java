@@ -8,7 +8,7 @@ public class OdontologoDTO implements Serializable {
     private String apellido;
     private Integer matricula;
 
-    public OdontologoDTO(){
+    public OdontologoDTO() {
     }
 
     public Long getId() {

@@ -3,17 +3,15 @@ package com.agustinbravop.clinica_odontologica.odontologo;
 import com.agustinbravop.clinica_odontologica.config.ApplicationConfig;
 import com.agustinbravop.clinica_odontologica.dto.OdontologoDTO;
 import com.agustinbravop.clinica_odontologica.model.Odontologo;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
-import org.junit.jupiter.api.Assertions;
-
-import java.util.Date;
 
 public class OdontologoMappingDtoTest {
 
     private final ModelMapper mapper = new ApplicationConfig().getModelMapper();
 
-    private Odontologo getSampleOdontologo(){
+    private Odontologo getSampleOdontologo() {
         return new Odontologo(
                 7L,
                 "Agustín",
@@ -22,7 +20,7 @@ public class OdontologoMappingDtoTest {
         );
     }
 
-    private OdontologoDTO getSampleOdontologoDTO(){
+    private OdontologoDTO getSampleOdontologoDTO() {
         OdontologoDTO odontoDTO = new OdontologoDTO();
         odontoDTO.setId(7L);
         odontoDTO.setNombre("Agustín");
@@ -31,7 +29,7 @@ public class OdontologoMappingDtoTest {
         return odontoDTO;
     }
 
-    private void assertDeepEquality(Odontologo odonto, OdontologoDTO odontoDTO){
+    private void assertDeepEquality(Odontologo odonto, OdontologoDTO odontoDTO) {
         Assertions.assertEquals(odonto.getId(), odontoDTO.getId());
         Assertions.assertEquals(odonto.getNombre(), odontoDTO.getNombre());
         Assertions.assertEquals(odonto.getApellido(), odontoDTO.getApellido());
@@ -39,7 +37,7 @@ public class OdontologoMappingDtoTest {
     }
 
     @Test
-    void map_fromOdontologo_toOdontologoDTO(){
+    void map_fromOdontologo_toOdontologoDTO() {
         Odontologo odonto = getSampleOdontologo();
         OdontologoDTO odontoDTO = mapper.map(odonto, OdontologoDTO.class);
 
@@ -47,7 +45,7 @@ public class OdontologoMappingDtoTest {
     }
 
     @Test
-    void map_fromOdontologoDTO_toOdontologo(){
+    void map_fromOdontologoDTO_toOdontologo() {
         OdontologoDTO odontoDTO = getSampleOdontologoDTO();
         Odontologo odonto = mapper.map(odontoDTO, Odontologo.class);
 

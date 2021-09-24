@@ -30,7 +30,8 @@ public class TurnoServiceImpl implements TurnoService {
         List<Turno> turnos = turnoRepository.findAll();
         return mapper.map(
                 turnos,
-                new TypeToken<List<TurnoDTO>>() {}.getType()
+                new TypeToken<List<TurnoDTO>>() {
+                }.getType()
         );
     }
 
@@ -39,7 +40,8 @@ public class TurnoServiceImpl implements TurnoService {
         List<Turno> turnos = turnoRepository.findByOdontologoId(id);
         return mapper.map(
                 turnos,
-                new TypeToken<List<TurnoDTO>>() {}.getType()
+                new TypeToken<List<TurnoDTO>>() {
+                }.getType()
         );
     }
 
@@ -48,23 +50,25 @@ public class TurnoServiceImpl implements TurnoService {
         List<Turno> turnos = turnoRepository.findByPacienteId(id);
         return mapper.map(
                 turnos,
-                new TypeToken<List<TurnoDTO>>() {}.getType()
+                new TypeToken<List<TurnoDTO>>() {
+                }.getType()
         );
     }
 
     @Override
-    public List<TurnoDTO> getByPacienteIdAndOdontologoId(Long pacId, Long odontId){
+    public List<TurnoDTO> getByPacienteIdAndOdontologoId(Long pacId, Long odontId) {
         List<Turno> turnos;
-        if(pacId == null){
+        if (pacId == null) {
             turnos = turnoRepository.findByOdontologoId(odontId);
-        } else if(odontId == null){
+        } else if (odontId == null) {
             turnos = turnoRepository.findByPacienteId(pacId);
         } else {
             turnos = turnoRepository.findByPacienteIdAndOdontologoId(pacId, odontId);
         }
         return mapper.map(
                 turnos,
-                new TypeToken<List<TurnoDTO>>() {}.getType()
+                new TypeToken<List<TurnoDTO>>() {
+                }.getType()
         );
     }
 

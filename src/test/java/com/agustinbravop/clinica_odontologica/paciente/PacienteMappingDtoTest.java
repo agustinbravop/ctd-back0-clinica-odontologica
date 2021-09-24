@@ -5,9 +5,9 @@ import com.agustinbravop.clinica_odontologica.dto.DomicilioDTO;
 import com.agustinbravop.clinica_odontologica.dto.PacienteDTO;
 import com.agustinbravop.clinica_odontologica.model.Domicilio;
 import com.agustinbravop.clinica_odontologica.model.Paciente;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
-import org.junit.jupiter.api.Assertions;
 
 import java.util.Date;
 
@@ -15,7 +15,7 @@ public class PacienteMappingDtoTest {
 
     private final ModelMapper mapper = new ApplicationConfig().getModelMapper();
 
-    private Paciente getSamplePaciente(){
+    private Paciente getSamplePaciente() {
         return new Paciente(
                 2L,
                 "Agustín",
@@ -31,7 +31,7 @@ public class PacienteMappingDtoTest {
         );
     }
 
-    private PacienteDTO getSamplePacienteDTO(){
+    private PacienteDTO getSamplePacienteDTO() {
         DomicilioDTO dDTO = new DomicilioDTO();
         dDTO.setCalle("Sarasa");
         dDTO.setNumero("1234");
@@ -48,7 +48,7 @@ public class PacienteMappingDtoTest {
         return pDTO;
     }
 
-    private void assertDeepEquality(Paciente pac, PacienteDTO pacDTO){
+    private void assertDeepEquality(Paciente pac, PacienteDTO pacDTO) {
         Assertions.assertEquals(pac.getId(), pacDTO.getId());
         Assertions.assertEquals(pac.getNombre(), pacDTO.getNombre());
         Assertions.assertEquals(pac.getApellido(), pacDTO.getApellido());
@@ -61,7 +61,7 @@ public class PacienteMappingDtoTest {
     }
 
     @Test
-    void map_fromPaciente_toPacienteDTO(){
+    void map_fromPaciente_toPacienteDTO() {
         Paciente pac = getSamplePaciente();
         PacienteDTO pacDTO = mapper.map(pac, PacienteDTO.class);
 
@@ -69,7 +69,7 @@ public class PacienteMappingDtoTest {
     }
 
     @Test
-    void map_fromPacienteDTO_toPaciente(){
+    void map_fromPacienteDTO_toPaciente() {
         PacienteDTO pacDTO = getSamplePacienteDTO();
         Paciente pac = mapper.map(pacDTO, Paciente.class);
 

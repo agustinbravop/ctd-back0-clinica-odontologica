@@ -15,31 +15,31 @@ public class OdontologoController {
     private OdontologoService odontologoService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<OdontologoDTO> getOdontologo(@PathVariable("id") Long id){
+    public ResponseEntity<OdontologoDTO> getOdontologo(@PathVariable("id") Long id) {
         OdontologoDTO odontologoDTO = odontologoService.getOne(id);
         return ResponseEntity.ok(odontologoDTO);
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<OdontologoDTO>> getAllOdontologos(){
+    public ResponseEntity<List<OdontologoDTO>> getAllOdontologos() {
         List<OdontologoDTO> odontologoDTOs = odontologoService.getAll();
         return ResponseEntity.ok(odontologoDTOs);
     }
 
     @PostMapping("/add")
-    public ResponseEntity<OdontologoDTO> addOdontologo(@RequestBody OdontologoDTO odontologoDTO){
+    public ResponseEntity<OdontologoDTO> addOdontologo(@RequestBody OdontologoDTO odontologoDTO) {
         odontologoDTO = odontologoService.create(odontologoDTO);
         return ResponseEntity.ok(odontologoDTO);
     }
 
     @PutMapping("/modify")
-    public ResponseEntity<OdontologoDTO> modifyOdontologo(@RequestBody OdontologoDTO odontologoDTO){
+    public ResponseEntity<OdontologoDTO> modifyOdontologo(@RequestBody OdontologoDTO odontologoDTO) {
         odontologoDTO = odontologoService.update(odontologoDTO);
         return ResponseEntity.ok(odontologoDTO);
     }
 
     @DeleteMapping("/remove/{id}")
-    public ResponseEntity<OdontologoDTO> deleteOdontologo(@PathVariable Long id){
+    public ResponseEntity<OdontologoDTO> deleteOdontologo(@PathVariable Long id) {
         odontologoService.deleteById(id);
         return ResponseEntity.noContent().build();
     }

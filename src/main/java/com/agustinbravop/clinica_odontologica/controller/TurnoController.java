@@ -15,13 +15,13 @@ public class TurnoController {
     private TurnoService turnoService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<TurnoDTO> getTurno(@PathVariable("id") Long id){
+    public ResponseEntity<TurnoDTO> getTurno(@PathVariable("id") Long id) {
         TurnoDTO turnoDTO = turnoService.getOne(id);
         return ResponseEntity.ok(turnoDTO);
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<TurnoDTO>> getAllTurnos(){
+    public ResponseEntity<List<TurnoDTO>> getAllTurnos() {
         List<TurnoDTO> turnoDTOs = turnoService.getAll();
         return ResponseEntity.ok(turnoDTOs);
     }
@@ -30,25 +30,25 @@ public class TurnoController {
     public ResponseEntity<List<TurnoDTO>> getTurnosByPacienteIdAndOdontologoId(
             @RequestParam(required = false) Long pac,
             @RequestParam(required = false) Long odont
-    ){
+    ) {
         List<TurnoDTO> turnoDTOs = turnoService.getByPacienteIdAndOdontologoId(pac, odont);
         return ResponseEntity.ok(turnoDTOs);
     }
 
     @PostMapping("/add")
-    public ResponseEntity<TurnoDTO> addTurno(@RequestBody TurnoDTO turnoDTO){
+    public ResponseEntity<TurnoDTO> addTurno(@RequestBody TurnoDTO turnoDTO) {
         turnoDTO = turnoService.create(turnoDTO);
         return ResponseEntity.ok(turnoDTO);
     }
 
     @PutMapping("/modify")
-    public ResponseEntity<TurnoDTO> modifyTurno(@RequestBody TurnoDTO turnoDTO){
+    public ResponseEntity<TurnoDTO> modifyTurno(@RequestBody TurnoDTO turnoDTO) {
         turnoDTO = turnoService.update(turnoDTO);
         return ResponseEntity.ok(turnoDTO);
     }
 
     @DeleteMapping("/remove/{id}")
-    public ResponseEntity<TurnoDTO> removeTurno(@PathVariable Long id){
+    public ResponseEntity<TurnoDTO> removeTurno(@PathVariable Long id) {
         turnoService.deleteById(id);
         return ResponseEntity.noContent().build();
     }

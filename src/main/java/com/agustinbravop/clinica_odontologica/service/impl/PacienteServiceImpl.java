@@ -34,7 +34,8 @@ public class PacienteServiceImpl implements PacienteService {
         List<Paciente> pacientes = pacienteRepository.findAll();
         return mapper.map(
                 pacientes,
-                new TypeToken<List<PacienteDTO>>() {}.getType()
+                new TypeToken<List<PacienteDTO>>() {
+                }.getType()
         );
     }
 
@@ -59,7 +60,7 @@ public class PacienteServiceImpl implements PacienteService {
     @Override
     public PacienteDTO create(PacienteDTO pacienteDTO) {
         Paciente paciente = mapper.map(pacienteDTO, Paciente.class);
-        if(paciente.getFechaIngreso() == null){
+        if (paciente.getFechaIngreso() == null) {
             paciente.setFechaIngreso(new Date());
         }
         domicilioRepository.save(paciente.getDomicilio());

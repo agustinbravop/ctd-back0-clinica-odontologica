@@ -37,14 +37,13 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
             stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
             ResultSet rs = stmt.getGeneratedKeys();
 
-            if(rs.next())
+            if (rs.next())
                 domicilio.setId(rs.getLong(1));
 
             rs.close();
             stmt.close();
             conn.close();
-        }
-        catch (SQLException throwables) {
+        } catch (SQLException throwables) {
             logger.debug("SQLException: ", throwables);
         }
 
@@ -65,8 +64,7 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
             rs.close();
             stmt.close();
             conn.close();
-        }
-        catch (SQLException throwables) {
+        } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return Optional.ofNullable(domicilio);
@@ -87,8 +85,7 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
             rs.close();
             stmt.close();
             conn.close();
-        }
-        catch (SQLException throwables) {
+        } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
 
@@ -132,8 +129,7 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
             statement.executeUpdate(query);
             statement.close();
             conn.close();
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

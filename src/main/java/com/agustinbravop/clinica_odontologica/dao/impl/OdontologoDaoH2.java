@@ -40,8 +40,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
             rs.close();
             stmt.close();
             conn.close();
-        }
-        catch (SQLException throwables) {
+        } catch (SQLException throwables) {
             logger.debug("SQLException: ", throwables);
         }
 
@@ -62,8 +61,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
             rs.close();
             stmt.close();
             conn.close();
-        }
-        catch (SQLException throwables) {
+        } catch (SQLException throwables) {
             logger.debug("SQLException: ", throwables);
         }
         return Optional.ofNullable(odontologo);
@@ -83,8 +81,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
             rs.close();
             stmt.close();
             connection.close();
-        }
-        catch (SQLException throwables) {
+        } catch (SQLException throwables) {
             logger.debug("SQLException: ", throwables);
         }
 
@@ -126,8 +123,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
             statement.executeUpdate(query);
             statement.close();
             conn.close();
-        }
-        catch (SQLException throwables) {
+        } catch (SQLException throwables) {
             logger.debug("SQLException: ", throwables);
         }
     }
