@@ -1,15 +1,11 @@
 package com.agustinbravop.clinica_odontologica.dto;
 
-import com.agustinbravop.clinica_odontologica.model.Odontologo;
-import com.agustinbravop.clinica_odontologica.model.Paciente;
-
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 public class TurnoDTO implements Serializable {
     private Long id;
-    private Date date;
+    private Date fecha;
     private PacienteDTO paciente;
     private OdontologoDTO odontologo;
 
@@ -24,12 +20,12 @@ public class TurnoDTO implements Serializable {
         this.id = id;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getFecha() {
+        return fecha;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 
     public PacienteDTO getPaciente() {

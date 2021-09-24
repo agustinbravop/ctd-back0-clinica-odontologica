@@ -7,11 +7,11 @@ import java.util.Date;
 @Table
 public class Turno {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private Date date; /* YYYY-MM-DD */
+    private Date fecha; /* YYYY-MM-DD */
 
     @ManyToOne
     @JoinColumn(name = "paciente_id")
@@ -20,11 +20,11 @@ public class Turno {
     @JoinColumn(name = "odontologo_id")
     private Odontologo odontologo;
 
-    public Turno(Long id, Paciente paciente, Odontologo odontologo, Date date) {
+    public Turno(Long id, Paciente paciente, Odontologo odontologo, Date fecha) {
         this.id = id;
         this.paciente = paciente;
         this.odontologo = odontologo;
-        this.date = date;
+        this.fecha = fecha;
     }
 
     public Turno() {
@@ -54,11 +54,11 @@ public class Turno {
         this.odontologo = odontologo;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getFecha() {
+        return fecha;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 }
