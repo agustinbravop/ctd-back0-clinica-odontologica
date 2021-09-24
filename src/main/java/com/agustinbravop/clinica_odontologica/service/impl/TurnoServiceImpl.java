@@ -2,7 +2,6 @@ package com.agustinbravop.clinica_odontologica.service.impl;
 
 import com.agustinbravop.clinica_odontologica.dto.TurnoDTO;
 import com.agustinbravop.clinica_odontologica.model.Turno;
-import com.agustinbravop.clinica_odontologica.repository.DomicilioRepository;
 import com.agustinbravop.clinica_odontologica.repository.TurnoRepository;
 import com.agustinbravop.clinica_odontologica.service.TurnoService;
 import org.modelmapper.ModelMapper;
@@ -17,8 +16,6 @@ public class TurnoServiceImpl implements TurnoService {
 
     @Autowired
     private TurnoRepository turnoRepository;
-    @Autowired
-    private DomicilioRepository domicilioRepository;
     @Autowired
     private ModelMapper mapper;
 

@@ -26,8 +26,11 @@ public class TurnoController {
         return ResponseEntity.ok(turnoDTOs);
     }
 
-    @GetMapping("/")
-    public ResponseEntity<List<TurnoDTO>> getTurnosByPacienteIdAndOdontologoId(@RequestParam Long pac, @RequestParam Long odont){
+    @GetMapping("")
+    public ResponseEntity<List<TurnoDTO>> getTurnosByPacienteIdAndOdontologoId(
+            @RequestParam(required = false) Long pac,
+            @RequestParam(required = false) Long odont
+    ){
         List<TurnoDTO> turnoDTOs = turnoService.getByPacienteIdAndOdontologoId(pac, odont);
         return ResponseEntity.ok(turnoDTOs);
     }
