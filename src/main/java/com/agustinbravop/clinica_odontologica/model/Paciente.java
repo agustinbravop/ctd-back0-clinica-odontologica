@@ -17,7 +17,7 @@ public class Paciente {
     private Date fechaIngreso;
 
     @ManyToOne
-    @JoinColumn(name = "domicilio_id")
+    @JoinColumn(name = "domicilio_id", referencedColumnName = "id")
     private Domicilio domicilio;
 
     public Paciente() {

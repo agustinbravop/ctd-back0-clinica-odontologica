@@ -63,7 +63,16 @@ public class PacienteServiceImpl implements PacienteService {
         if (paciente.getFechaIngreso() == null) {
             paciente.setFechaIngreso(new Date());
         }
-        domicilioRepository.save(paciente.getDomicilio());
+
+        Long domicilioId = domicilioRepository.findByPropertiesEquality(paciente.getDomicilio());
+        if (domicilioId == null) {
+            // domicilio no existe, hay que guardarlo
+            domicilioRepository.save(paciente.getDomicilio());
+        } else {
+            // domicilio ya existe
+            paciente.getDomicilio().setId(domicilioId);
+        }
+
         paciente = pacienteRepository.save(paciente);
         return mapper.map(paciente, PacienteDTO.class);
     }
