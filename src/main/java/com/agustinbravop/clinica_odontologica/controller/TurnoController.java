@@ -1,6 +1,7 @@
 package com.agustinbravop.clinica_odontologica.controller;
 
 import com.agustinbravop.clinica_odontologica.dto.TurnoDTO;
+import com.agustinbravop.clinica_odontologica.model.Turno;
 import com.agustinbravop.clinica_odontologica.service.TurnoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +32,14 @@ public class TurnoController {
             @RequestParam(required = false) Long pac,
             @RequestParam(required = false) Long odont
     ) {
-        List<TurnoDTO> turnoDTOs = turnoService.getByPacienteIdAndOdontologoId(pac, odont);
+        List<TurnoDTO> turnoDTOs;
+        if (pac == null) {
+            turnoDTOs = turnoService.getByOdontologoId(odont);
+        } else if (odont == null) {
+            turnoDTOs = turnoService.getByPacienteId(pac);
+        } else {
+            turnoDTOs = turnoService.getByPacienteIdAndOdontologoId(pac, odont);
+        }
         return ResponseEntity.ok(turnoDTOs);
     }
 

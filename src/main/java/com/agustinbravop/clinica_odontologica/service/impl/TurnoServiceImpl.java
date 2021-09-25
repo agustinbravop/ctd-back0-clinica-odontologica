@@ -57,14 +57,8 @@ public class TurnoServiceImpl implements TurnoService {
 
     @Override
     public List<TurnoDTO> getByPacienteIdAndOdontologoId(Long pacId, Long odontId) {
-        List<Turno> turnos;
-        if (pacId == null) {
-            turnos = turnoRepository.findByOdontologoId(odontId);
-        } else if (odontId == null) {
-            turnos = turnoRepository.findByPacienteId(pacId);
-        } else {
-            turnos = turnoRepository.findByPacienteIdAndOdontologoId(pacId, odontId);
-        }
+        List<Turno> turnos = turnoRepository.findByPacienteIdAndOdontologoId(pacId, odontId);
+
         return mapper.map(
                 turnos,
                 new TypeToken<List<TurnoDTO>>() {
