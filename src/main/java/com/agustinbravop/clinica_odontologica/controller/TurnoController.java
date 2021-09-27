@@ -1,7 +1,6 @@
 package com.agustinbravop.clinica_odontologica.controller;
 
 import com.agustinbravop.clinica_odontologica.dto.TurnoDTO;
-import com.agustinbravop.clinica_odontologica.model.Turno;
 import com.agustinbravop.clinica_odontologica.service.TurnoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -3,16 +3,17 @@ package com.agustinbravop.clinica_odontologica.model;
 import javax.persistence.*;
 import java.util.Date;
 
-
 @Entity
 @Table
 public class Paciente {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Long id;
     private String nombre;
     private String apellido;
+    @Column(unique = true)
     private String dni;
     private Date fechaIngreso;
 
