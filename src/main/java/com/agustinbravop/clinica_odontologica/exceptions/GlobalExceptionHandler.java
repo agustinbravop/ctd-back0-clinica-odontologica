@@ -1,8 +1,6 @@
 package com.agustinbravop.clinica_odontologica.exceptions;
 
 import org.apache.log4j.Logger;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

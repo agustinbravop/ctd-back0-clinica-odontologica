@@ -4,9 +4,9 @@ import com.agustinbravop.clinica_odontologica.dto.TurnoDTO;
 import com.agustinbravop.clinica_odontologica.exceptions.BadRequestException;
 import com.agustinbravop.clinica_odontologica.exceptions.ResourceNotFoundException;
 import com.agustinbravop.clinica_odontologica.model.Turno;
-import com.agustinbravop.clinica_odontologica.repository.TurnoRepository;
 import com.agustinbravop.clinica_odontologica.repository.OdontologoRepository;
 import com.agustinbravop.clinica_odontologica.repository.PacienteRepository;
+import com.agustinbravop.clinica_odontologica.repository.TurnoRepository;
 import com.agustinbravop.clinica_odontologica.service.TurnoService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -81,7 +81,7 @@ public class TurnoServiceImpl implements TurnoService {
 
     @Override
     public TurnoDTO update(TurnoDTO turnoDTO) {
-        if(turnoRepository.getById(turnoDTO.getId()) == null){
+        if (turnoRepository.getById(turnoDTO.getId()) == null) {
             throw new ResourceNotFoundException("No existe turno con id: " + turnoDTO.getId());
         }
 
@@ -104,7 +104,7 @@ public class TurnoServiceImpl implements TurnoService {
     public TurnoDTO create(TurnoDTO turnoDTO) {
         Turno turno = mapper.map(turnoDTO, Turno.class);
 
-        if(turno.getId() != null){
+        if (turno.getId() != null) {
             throw new BadRequestException("No se puede crear turnos con un id ya asignado.");
         }
 

@@ -2,56 +2,56 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        name="viewport">
   <title>Odontólogos</title>
-  <script type="text/javascript" th:src="@{/js/cssandjs/odontologo-add.js}" defer></script>
+  <script defer th:src="@{/js/cssandjs/odontologo-add.js}" type="text/javascript"></script>
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="/paciente">Pacientes</a></li>
-        <li><a href="#">Odontologos</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <form action="odontologo/add" method="post" id="odontologoAdd">
-      <h2>Agregar un odontólogo nuevo</h2>
-      <table>
-        <tr>
-          <td>Nombre</td>
-          <td><input type="text" name="nombre"></td>
-        </tr>
-        <tr>
-          <td>Apellido</td>
-          <td><input type="text" name="apellido"></td>
-        </tr>
-        <tr>
-          <td>Matrícula</td>
-          <td><input type="text" name="matricula"></td>
-        </tr>
-      </table>
-      <button input="submit">Agregar</button>
-    </form>
+<header>
+  <nav>
+    <ul>
+      <li><a href="/paciente">Pacientes</a></li>
+      <li><a href="#">Odontologos</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <form action="odontologo/add" id="odontologoAdd" method="post">
+    <h2>Agregar un odontólogo nuevo</h2>
+    <table>
+      <tr>
+        <td>Nombre</td>
+        <td><input name="nombre" type="text"></td>
+      </tr>
+      <tr>
+        <td>Apellido</td>
+        <td><input name="apellido" type="text"></td>
+      </tr>
+      <tr>
+        <td>Matrícula</td>
+        <td><input name="matricula" type="text"></td>
+      </tr>
+    </table>
+    <button input="submit">Agregar</button>
+  </form>
 
-    <h2>Odontologos registrados</h2>
-    <ol>
-      <li th:each="odontologo : ${odontologos}">
-        <p>
-          <b>
-            <td>Odontólogo:</td>
-            <td th:text="${odontologo.nombre}"></td>
-            <td th:text="${odontologo.apellido}"></td>
-          </b>
-        </p>
-        <p>
-          <td>Matrícula:</td>
-          <td th:text="${odontologo.matricula}"></td>
-        </p>
-      </li>
-    </ol>
-  </main>
+  <h2>Odontologos registrados</h2>
+  <ol>
+    <li th:each="odontologo : ${odontologos}">
+      <p>
+        <b>
+          <td>Odontólogo:</td>
+          <td th:text="${odontologo.nombre}"></td>
+          <td th:text="${odontologo.apellido}"></td>
+        </b>
+      </p>
+      <p>
+      <td>Matrícula:</td>
+      <td th:text="${odontologo.matricula}"></td>
+      </p>
+    </li>
+  </ol>
+</main>
 </body>
 </html>

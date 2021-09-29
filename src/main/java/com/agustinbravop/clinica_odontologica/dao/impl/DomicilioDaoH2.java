@@ -15,8 +15,8 @@ import java.util.List;
 import java.util.Optional;
 
 public class DomicilioDaoH2 implements IDao<Domicilio> {
-    private final ConfiguracionJDBC configuracionJDBC;
     private static final Logger logger = Logger.getLogger(DomicilioDaoH2.class);
+    private final ConfiguracionJDBC configuracionJDBC;
 
     public DomicilioDaoH2(ConfiguracionJDBC configuracionJDBC) {
         this.configuracionJDBC = configuracionJDBC;

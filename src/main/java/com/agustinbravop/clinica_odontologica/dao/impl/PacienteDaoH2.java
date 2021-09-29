@@ -16,9 +16,9 @@ import java.util.Optional;
 
 public class PacienteDaoH2 implements IDao<Paciente> {
 
+    final static Logger logger = Logger.getLogger(PacienteDaoH2.class);
     private final ConfiguracionJDBC configuracionJDBC;
     private final DomicilioDaoH2 domicilioDaoH2;
-    final static Logger logger = Logger.getLogger(PacienteDaoH2.class);
 
     public PacienteDaoH2(ConfiguracionJDBC configuracionJDBC, DomicilioDaoH2 domicilioDaoH2) {
         this.configuracionJDBC = configuracionJDBC;

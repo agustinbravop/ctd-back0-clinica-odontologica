@@ -11,8 +11,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/turno")
 public class TurnoController {
+    private final TurnoService turnoService;
+
     @Autowired
-    private TurnoService turnoService;
+    public TurnoController(TurnoService turnoService) {
+        this.turnoService = turnoService;
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<TurnoDTO> getTurno(@PathVariable("id") Long id) {

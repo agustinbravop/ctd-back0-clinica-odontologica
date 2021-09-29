@@ -16,10 +16,14 @@ import java.util.List;
 @Service
 public class OdontologoServiceImpl implements OdontologoService {
 
+    private final OdontologoRepository odontologoRepository;
+    private final ModelMapper mapper;
+
     @Autowired
-    private OdontologoRepository odontologoRepository;
-    @Autowired
-    private ModelMapper mapper;
+    public OdontologoServiceImpl(OdontologoRepository odontologoRepository, ModelMapper mapper) {
+        this.odontologoRepository = odontologoRepository;
+        this.mapper = mapper;
+    }
 
     @Override
     public OdontologoDTO getOne(Long id) {
@@ -39,7 +43,7 @@ public class OdontologoServiceImpl implements OdontologoService {
 
     @Override
     public OdontologoDTO update(OdontologoDTO odontologoDTO) {
-        if(odontologoRepository.getById(odontologoDTO.getId()) == null){
+        if (odontologoRepository.getById(odontologoDTO.getId()) == null) {
             throw new ResourceNotFoundException("No existe odontologo con id: " + odontologoDTO.getId());
         }
 
@@ -62,7 +66,7 @@ public class OdontologoServiceImpl implements OdontologoService {
     public OdontologoDTO create(OdontologoDTO odontologoDTO) {
         Odontologo odontologo = mapper.map(odontologoDTO, Odontologo.class);
 
-        if(odontologo.getId() != null){
+        if (odontologo.getId() != null) {
             throw new BadRequestException("No se puede crear odontologos con un id ya asignado.");
         }
 

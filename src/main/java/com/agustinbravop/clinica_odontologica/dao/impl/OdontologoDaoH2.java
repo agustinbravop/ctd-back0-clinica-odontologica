@@ -14,8 +14,8 @@ import java.util.List;
 import java.util.Optional;
 
 public class OdontologoDaoH2 implements IDao<Odontologo> {
-    private final ConfiguracionJDBC configuracionJDBC;
     final static Logger logger = Logger.getLogger(OdontologoDaoH2.class);
+    private final ConfiguracionJDBC configuracionJDBC;
 
     public OdontologoDaoH2(ConfiguracionJDBC configuracionJDBC) {
         this.configuracionJDBC = configuracionJDBC;

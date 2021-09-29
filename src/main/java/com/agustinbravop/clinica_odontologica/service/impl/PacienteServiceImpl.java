@@ -18,12 +18,16 @@ import java.util.List;
 @Service
 public class PacienteServiceImpl implements PacienteService {
 
+    private final PacienteRepository pacienteRepository;
+    private final DomicilioRepository domicilioRepository;
+    private final ModelMapper mapper;
+
     @Autowired
-    private PacienteRepository pacienteRepository;
-    @Autowired
-    private DomicilioRepository domicilioRepository;
-    @Autowired
-    private ModelMapper mapper;
+    public PacienteServiceImpl(PacienteRepository pacienteRepository, DomicilioRepository domicilioRepository, ModelMapper mapper) {
+        this.pacienteRepository = pacienteRepository;
+        this.domicilioRepository = domicilioRepository;
+        this.mapper = mapper;
+    }
 
     @Override
     public PacienteDTO getOne(Long id) {
@@ -43,7 +47,7 @@ public class PacienteServiceImpl implements PacienteService {
 
     @Override
     public PacienteDTO update(PacienteDTO pacienteDTO) {
-        if(pacienteRepository.getById(pacienteDTO.getId()) == null){
+        if (pacienteRepository.getById(pacienteDTO.getId()) == null) {
             throw new ResourceNotFoundException("No existe paciente con id: " + pacienteDTO.getId());
         }
 
@@ -70,7 +74,7 @@ public class PacienteServiceImpl implements PacienteService {
             paciente.setFechaIngreso(new Date());
         }
 
-        if(paciente.getId() != null){
+        if (paciente.getId() != null) {
             throw new BadRequestException("No se puede crear pacientes con un id ya asignado.");
         }
 

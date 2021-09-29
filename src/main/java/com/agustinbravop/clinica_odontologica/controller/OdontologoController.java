@@ -12,8 +12,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/odontologo")
 public class OdontologoController {
+
+    private final OdontologoService odontologoService;
+
     @Autowired
-    private OdontologoService odontologoService;
+    public OdontologoController(OdontologoService odontologoService) {
+        this.odontologoService = odontologoService;
+    }
 
     @GetMapping("")
     public ModelAndView index() {

@@ -12,8 +12,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/paciente")
 public class PacienteController {
+
+    private final PacienteService pacienteService;
+
     @Autowired
-    private PacienteService pacienteService;
+    public PacienteController(PacienteService pacienteService) {
+        this.pacienteService = pacienteService;
+    }
 
     @GetMapping("")
     public ModelAndView index() {
