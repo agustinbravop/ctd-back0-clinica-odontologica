@@ -5,6 +5,8 @@ import com.agustinbravop.clinica_odontologica.exceptions.BadRequestException;
 import com.agustinbravop.clinica_odontologica.exceptions.ResourceNotFoundException;
 import com.agustinbravop.clinica_odontologica.model.Turno;
 import com.agustinbravop.clinica_odontologica.repository.TurnoRepository;
+import com.agustinbravop.clinica_odontologica.service.OdontologoService;
+import com.agustinbravop.clinica_odontologica.service.PacienteService;
 import com.agustinbravop.clinica_odontologica.service.TurnoService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -16,10 +18,10 @@ import java.util.List;
 @Service
 public class TurnoServiceImpl implements TurnoService {
 
-    @Autowired
-    private TurnoRepository turnoRepository;
-    @Autowired
-    private ModelMapper mapper;
+    @Autowired private TurnoRepository turnoRepository;
+    @Autowired private PacienteService pacienteService;
+    @Autowired private OdontologoService odontologoService;
+    @Autowired private ModelMapper mapper;
 
     @Override
     public TurnoDTO getOne(Long id) {

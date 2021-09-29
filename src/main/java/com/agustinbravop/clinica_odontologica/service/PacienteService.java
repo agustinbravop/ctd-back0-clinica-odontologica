@@ -1,7 +1,6 @@
 package com.agustinbravop.clinica_odontologica.service;
 
 import com.agustinbravop.clinica_odontologica.dto.PacienteDTO;
-import com.agustinbravop.clinica_odontologica.exceptions.BadRequestException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

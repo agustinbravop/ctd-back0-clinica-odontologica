@@ -1,5 +1,6 @@
 package com.agustinbravop.clinica_odontologica.exceptions;
 
+import org.apache.log4j.Logger;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,8 @@ import javax.persistence.EntityNotFoundException;
 @RestControllerAdvice
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class SpecificExceptionHandler extends ResponseEntityExceptionHandler {
+
+    private static final Logger logger = Logger.getLogger(SpecificExceptionHandler.class);
 
     @ExceptionHandler(ResourceNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
