@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Pacientes</title>
+  <script type="text/javascript" th:src="@{/js/cssandjs/paciente-add.js}" defer></script>
+</head>
+<body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#">Pacientes</a></li>
+          <li><a href="/odontologo">Odontologos</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <form action="paciente/add" method="post" id="pacienteAdd">
+        <h2>Agregar un paciente nuevo</h2>
+        <table>
+          <tr>
+            <td>Nombre</td>
+            <td><input type="text" name="nombre"></td>
+          </tr>
+          <tr>
+            <td>Apellido</td>
+            <td><input type="text" name="apellido"></td>
+          </tr>
+          <tr>
+            <td>DNI</td>
+            <td><input type="text" name="dni"></td>
+          </tr>
+          <tr>
+            <td>Dirección</td>
+            <td><input type="text" name="domicilioCalle"></td>
+            <td>Número de la dirección</td>
+            <td><input type="text" name="domicilioNumero"></td>
+          </tr>
+          <tr>
+            <td>Localidad</td>
+            <td><input type="text" name="domicilioLocalidad"></td>
+            <td>Provincia</td>
+            <td><input type="text" name="domicilioProvincia"></td>
+          </tr>
+          <tr>
+          </tr>
+        </table>
+        <button input="submit">Agregar</button>
+      </form>
+
+      <h2>Pacientes registrados</h2>
+      <ol>
+        <li th:each="paciente : ${pacientes}">
+          <p>
+            <b>
+              <td>Paciente:</td>
+              <td th:text="${paciente.nombre}"></td>
+              <td th:text="${paciente.apellido}"></td>
+            </b>
+          </p>
+          <p>
+            <td>DNI:</td>
+            <td th:text="${paciente.dni}"></td>
+          </p>
+          <p>
+            <td>Fecha de ingreso:</td>
+            <td th:text="${paciente.fechaIngreso}"></td>
+          </p>
+          <p>
+          <td>Domicilio:</td>
+          <td th:text="${paciente.domicilio.calle}"></td>
+          <td th:text="${paciente.domicilio.numero} + '.'"></td>
+          <td th:text="${paciente.domicilio.localidad} + ', ' + ${paciente.domicilio.provincia}"></td>
+          </p>
+        </li>
+      </ol>
+    </main>
+</body>
+</html>

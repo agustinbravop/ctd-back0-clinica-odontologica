@@ -13,10 +13,10 @@ public class Turno {
 
     private Date fecha; /* YYYY-MM-DD */
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne
     @JoinColumn(name = "paciente_id")
     private Paciente paciente;
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne
     @JoinColumn(name = "odontologo_id")
     private Odontologo odontologo;
 

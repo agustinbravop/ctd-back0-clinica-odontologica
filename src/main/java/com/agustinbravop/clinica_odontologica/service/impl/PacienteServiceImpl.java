@@ -70,15 +70,6 @@ public class PacienteServiceImpl implements PacienteService {
             paciente.setFechaIngreso(new Date());
         }
 
-        Long domicilioId = domicilioRepository.findByPropertiesEquality(paciente.getDomicilio());
-        if (domicilioId == null) {
-            // domicilio no existe, hay que guardarlo
-            domicilioRepository.save(paciente.getDomicilio());
-        } else {
-            // domicilio ya existe (relación uno a muchos)
-            paciente.getDomicilio().setId(domicilioId);
-        }
-
         if(paciente.getId() != null){
             throw new BadRequestException("No se puede crear pacientes con un id ya asignado.");
         }

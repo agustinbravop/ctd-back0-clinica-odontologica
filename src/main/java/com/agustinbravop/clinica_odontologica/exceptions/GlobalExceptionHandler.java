@@ -20,7 +20,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<?> anyExceptionHandler(Exception ex) {
         logger.error(ex.getMessage(), ex);
         return new ResponseEntity<>(
-                "Error interno al procesar la petición. Mensaje: " + ex.getMessage(),
+                "Error interno al procesar la petición.",
                 HttpStatus.INTERNAL_SERVER_ERROR
         );
     }

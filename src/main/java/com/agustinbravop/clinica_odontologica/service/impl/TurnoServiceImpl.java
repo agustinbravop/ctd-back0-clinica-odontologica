@@ -5,8 +5,8 @@ import com.agustinbravop.clinica_odontologica.exceptions.BadRequestException;
 import com.agustinbravop.clinica_odontologica.exceptions.ResourceNotFoundException;
 import com.agustinbravop.clinica_odontologica.model.Turno;
 import com.agustinbravop.clinica_odontologica.repository.TurnoRepository;
-import com.agustinbravop.clinica_odontologica.service.OdontologoService;
-import com.agustinbravop.clinica_odontologica.service.PacienteService;
+import com.agustinbravop.clinica_odontologica.repository.OdontologoRepository;
+import com.agustinbravop.clinica_odontologica.repository.PacienteRepository;
 import com.agustinbravop.clinica_odontologica.service.TurnoService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -18,10 +18,18 @@ import java.util.List;
 @Service
 public class TurnoServiceImpl implements TurnoService {
 
-    @Autowired private TurnoRepository turnoRepository;
-    @Autowired private PacienteService pacienteService;
-    @Autowired private OdontologoService odontologoService;
-    @Autowired private ModelMapper mapper;
+    private final TurnoRepository turnoRepository;
+    private final PacienteRepository pacienteRepository;
+    private final OdontologoRepository odontologoRepository;
+    private final ModelMapper mapper;
+
+    @Autowired
+    public TurnoServiceImpl(TurnoRepository turnoRepository, PacienteRepository pacienteRepository, OdontologoRepository odontologoRepository, ModelMapper mapper) {
+        this.turnoRepository = turnoRepository;
+        this.pacienteRepository = pacienteRepository;
+        this.odontologoRepository = odontologoRepository;
+        this.mapper = mapper;
+    }
 
     @Override
     public TurnoDTO getOne(Long id) {
@@ -101,6 +109,8 @@ public class TurnoServiceImpl implements TurnoService {
         }
 
         turno = turnoRepository.save(turno);
+        turno.setPaciente(pacienteRepository.getById(turno.getPaciente().getId()));
+        turno.setOdontologo(odontologoRepository.getById(turno.getOdontologo().getId()));
         return mapper.map(turno, TurnoDTO.class);
     }
 }

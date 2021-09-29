@@ -27,7 +27,7 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/user/**").permitAll()
             .anyRequest().authenticated()
             .and().formLogin()
-            .successForwardUrl("/odontologo");
+            .defaultSuccessUrl("/paciente", true);
     }
 
     @Override
