@@ -2,6 +2,7 @@ package com.agustinbravop.clinica_odontologica.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table
@@ -99,5 +100,22 @@ public class Paciente {
                 ", fechaIngreso=" + fechaIngreso +
                 ", domicilio=" + domicilio +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Paciente paciente = (Paciente) o;
+        return Objects.equals(nombre, paciente.nombre)
+                && Objects.equals(apellido, paciente.apellido)
+                && Objects.equals(dni, paciente.dni)
+                && Objects.equals(fechaIngreso, paciente.fechaIngreso)
+                && Objects.equals(domicilio, paciente.domicilio);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, apellido, dni, fechaIngreso, domicilio);
     }
 }

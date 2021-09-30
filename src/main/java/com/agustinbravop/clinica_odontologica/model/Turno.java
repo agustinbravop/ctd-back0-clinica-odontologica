@@ -2,6 +2,7 @@ package com.agustinbravop.clinica_odontologica.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table
@@ -60,5 +61,20 @@ public class Turno {
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Turno turno = (Turno) o;
+        return Objects.equals(fecha, turno.fecha)
+                && Objects.equals(paciente, turno.paciente)
+                && Objects.equals(odontologo, turno.odontologo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fecha, paciente, odontologo);
     }
 }

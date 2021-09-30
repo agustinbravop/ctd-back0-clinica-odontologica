@@ -48,7 +48,7 @@ public class PacienteMappingDtoTest {
         return pDTO;
     }
 
-    private void assertDeepEquality(Paciente pac, PacienteDTO pacDTO) {
+    private void assertFieldsEquality(Paciente pac, PacienteDTO pacDTO) {
         Assertions.assertEquals(pac.getId(), pacDTO.getId());
         Assertions.assertEquals(pac.getNombre(), pacDTO.getNombre());
         Assertions.assertEquals(pac.getApellido(), pacDTO.getApellido());
@@ -65,7 +65,7 @@ public class PacienteMappingDtoTest {
         Paciente pac = getSamplePaciente();
         PacienteDTO pacDTO = mapper.map(pac, PacienteDTO.class);
 
-        assertDeepEquality(pac, pacDTO);
+        assertFieldsEquality(pac, pacDTO);
     }
 
     @Test
@@ -73,6 +73,6 @@ public class PacienteMappingDtoTest {
         PacienteDTO pacDTO = getSamplePacienteDTO();
         Paciente pac = mapper.map(pacDTO, Paciente.class);
 
-        assertDeepEquality(pac, pacDTO);
+        assertFieldsEquality(pac, pacDTO);
     }
 }

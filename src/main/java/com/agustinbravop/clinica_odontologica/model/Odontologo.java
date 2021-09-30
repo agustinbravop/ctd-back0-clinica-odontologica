@@ -1,6 +1,7 @@
 package com.agustinbravop.clinica_odontologica.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table
@@ -70,5 +71,20 @@ public class Odontologo {
                 ", apellido='" + apellido + '\'' +
                 ", matricula=" + matricula +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Odontologo that = (Odontologo) o;
+        return Objects.equals(nombre, that.nombre)
+                && Objects.equals(apellido, that.apellido)
+                && Objects.equals(matricula, that.matricula);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, apellido, matricula);
     }
 }
