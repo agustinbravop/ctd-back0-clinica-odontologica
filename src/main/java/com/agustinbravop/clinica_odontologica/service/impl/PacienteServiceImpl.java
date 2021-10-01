@@ -36,6 +36,12 @@ public class PacienteServiceImpl implements PacienteService {
     }
 
     @Override
+    public PacienteDTO getByDni(String dni) {
+        Paciente paciente = pacienteRepository.findByDni(dni);
+        return mapper.map(paciente, PacienteDTO.class);
+    }
+
+    @Override
     public List<PacienteDTO> getAll() {
         List<Paciente> pacientes = pacienteRepository.findAll();
         return mapper.map(
@@ -47,8 +53,12 @@ public class PacienteServiceImpl implements PacienteService {
 
     @Override
     public PacienteDTO update(PacienteDTO pacienteDTO) {
-        if (pacienteRepository.getById(pacienteDTO.getId()) == null) {
+        Paciente prevPaciente = pacienteRepository.getById(pacienteDTO.getId());
+        if (prevPaciente == null) {
             throw new ResourceNotFoundException("No existe paciente con id: " + pacienteDTO.getId());
+        }
+        if(pacienteDTO.getFechaIngreso() == null){
+            pacienteDTO.setFechaIngreso(prevPaciente.getFechaIngreso());
         }
 
         Paciente paciente = mapper.map(pacienteDTO, Paciente.class);

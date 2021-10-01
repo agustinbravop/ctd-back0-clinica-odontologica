@@ -22,4 +22,6 @@ public interface PacienteRepository extends JpaRepository<Paciente, Long> {
 
     @Override
     void deleteById(Long id);
+
+    Paciente findByDni(String dni);
 }

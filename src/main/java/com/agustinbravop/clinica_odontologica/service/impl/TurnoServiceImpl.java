@@ -81,8 +81,12 @@ public class TurnoServiceImpl implements TurnoService {
 
     @Override
     public TurnoDTO update(TurnoDTO turnoDTO) {
-        if (turnoRepository.getById(turnoDTO.getId()) == null) {
+        Turno prevTurno = turnoRepository.getById(turnoDTO.getId());
+        if (prevTurno == null) {
             throw new ResourceNotFoundException("No existe turno con id: " + turnoDTO.getId());
+        }
+        if(turnoDTO.getFecha() == null){
+            turnoDTO.setFecha(prevTurno.getFecha());
         }
 
         Turno turno = mapper.map(turnoDTO, Turno.class);

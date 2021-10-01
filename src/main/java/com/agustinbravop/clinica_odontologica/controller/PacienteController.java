@@ -34,6 +34,12 @@ public class PacienteController {
         return ResponseEntity.ok(pacienteDTO);
     }
 
+    @GetMapping("/dni/{dni}")
+    public ResponseEntity<PacienteDTO> getPacienteByDni(@PathVariable("dni") String dni) {
+        PacienteDTO pacienteDTO = pacienteService.getByDni(dni);
+        return ResponseEntity.ok(pacienteDTO);
+    }
+
     @GetMapping("/all")
     public ResponseEntity<List<PacienteDTO>> getAllPacientes() {
         List<PacienteDTO> pacienteDTOs = pacienteService.getAll();

@@ -9,6 +9,8 @@ import java.util.List;
 public interface PacienteService {
     PacienteDTO getOne(Long id);
 
+    PacienteDTO getByDni(String dni);
+
     List<PacienteDTO> getAll();
 
     PacienteDTO update(PacienteDTO pacienteDTO);
