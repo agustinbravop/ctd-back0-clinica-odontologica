@@ -32,10 +32,8 @@ function submitPacienteModify(e, form){
                 location.reload();
             }, 1000)
         }
-        return res.json();
     })
-    .then(data => console.log(data))
-    .catch(error => console.log(error))
+    .catch(error => alert(error))
 }
 
 const pacienteModifyForm = document.getElementById("pacienteModify");

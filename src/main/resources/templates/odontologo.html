@@ -23,7 +23,8 @@
 <header>
   <nav class="navbar navbar-light bg-light">
     <a class="btn btn-secondary" href="/paciente">Pacientes</a>
-    <a class="btn btn-secondary" href="#">Odontologos</a>
+    <a class="btn btn-secondary" href="#"><i>Odontologos</i></a>
+    <a class="btn btn-secondary" href="/turno">Turnos</a>
   </nav>
 </header>
 
@@ -49,7 +50,7 @@
     <form id="odontologoModify">
       <h2>Sobreescribir un odontologo existente</h2>
       <label for="modifyId">ID a modificar:</label>
-      <select class="custom-select form-control" id="modifyId" required>
+      <select class="form-select form-control" id="modifyId" required>
         <option selected>Elija...</option>
         <option th:each="odont : ${odontologos}" th:name="${odont.id}" th:text="${odont.id}"
                 th:value="${odont.id}"></option>

@@ -1,7 +1,7 @@
-function handleRemoveOdontologo(btn) {
+function handleRemoveTurno(btn) {
     const id = btn.id;
 
-    fetch(`http://localhost:8080/odontologo/remove/${id}`, {
+    fetch(`http://localhost:8080/turno/remove/${id}`, {
         method: "DELETE",
     })
     .then(res => {

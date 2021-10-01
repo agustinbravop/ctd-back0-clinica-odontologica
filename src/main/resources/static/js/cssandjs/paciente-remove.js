@@ -11,5 +11,5 @@ function handleRemovePaciente(btn) {
             }, 1000)
         }
     })
-    .catch(error => console.log(error))
+    .catch(error => alert(error))
 }
