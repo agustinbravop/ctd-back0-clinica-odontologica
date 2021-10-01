@@ -37,7 +37,7 @@ public class PacienteController {
     @GetMapping("/getBy")
     public ResponseEntity<PacienteDTO> getPacienteByDni(@RequestParam(required = false) String dni) {
 
-        if(dni == null){
+        if (dni == null) {
             return ResponseEntity.badRequest().build();
         }
         PacienteDTO pacienteDTO = pacienteService.getByDni(dni);

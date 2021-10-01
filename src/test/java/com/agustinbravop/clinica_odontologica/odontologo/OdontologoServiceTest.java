@@ -13,7 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class OdontologoServiceTest {
 
-    @Autowired private OdontologoService odontologoService;
+    @Autowired
+    private OdontologoService odontologoService;
 
     private OdontologoDTO getSampleOdontologoDTO() {
         OdontologoDTO odontoDTO = new OdontologoDTO();

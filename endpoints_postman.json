@@ -1,0 +1,538 @@
+{
+  "info": {
+    "_postman_id": "ae876db1-5c47-4a8b-9660-ac158b272bd3",
+    "name": "ctd_back1_clinica_odontologica",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "paciente",
+      "item": [
+        {
+          "name": "add",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nombre\": \"Agustín\",\r\n    \"apellido\": \"Bravo\",\r\n    \"dni\": \"30496835\",\r\n    \"domicilio\": {\r\n        \"calle\": \"Sarasa\",\r\n        \"numero\": 5783,\r\n        \"localidad\": \"Mendoza\",\r\n        \"provincia\": \"Mendoza\"\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/paciente/add",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "paciente",
+                "add"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getAll",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/paciente/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "paciente",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getById",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/paciente/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "paciente",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getByDni",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/paciente/getBy?dni=30496835",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "paciente",
+                "getBy"
+              ],
+              "query": [
+                {
+                  "key": "dni",
+                  "value": "30496835"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "modify",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": 2,\r\n    \"nombre\": \"Agustín\",\r\n    \"apellido\": \"Bravo\",\r\n    \"dni\": \"43535556\",\r\n    \"fechaIngreso\": \"2021-09-24T02:38:34.482+00:00\",\r\n    \"domicilio\": {\r\n        \"calle\": \"Sarasa Actualizada\",\r\n        \"numero\": \"0\",\r\n        \"localidad\": \"Resistencia\",\r\n        \"provincia\": \"Chaco\"\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/paciente/modify",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "paciente",
+                "modify"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "removeById",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/paciente/remove/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "paciente",
+                "remove",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "odontologo",
+      "item": [
+        {
+          "name": "add",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nombre\": \"Ariel\",\r\n    \"apellido\": \"Bertotto\",\r\n    \"matricula\": 666\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/odontologo/add",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "odontologo",
+                "add"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getAll",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/odontologo/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "odontologo",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getById",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/odontologo/45",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "odontologo",
+                "45"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "modify",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": 45,\r\n    \"nombre\": \"Ariel\",\r\n    \"apellido\": \"Bertotto\",\r\n    \"matricula\": 13666\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/odontologo/modify",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "odontologo",
+                "modify"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "removeById",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/odontologo/remove/3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "odontologo",
+                "remove",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "turno",
+      "item": [
+        {
+          "name": "add",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"fecha\": \"2021-11-28T16:30\",\r\n    \"paciente\": {\r\n        \"id\": 197\r\n    },\r\n    \"odontologo\": {\r\n        \"id\": 195\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/turno/add",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "turno",
+                "add"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getAll",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/turno/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "turno",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getById",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/turno/67",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "turno",
+                "67"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "modify",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": 67,\r\n    \"fecha\": \"2021-11-28T16:30:00.000+00:00\",\r\n    \"paciente\": {\r\n        \"id\": 44,\r\n        \"nombre\": \"Agustín\",\r\n        \"apellido\": \"Bravo\",\r\n        \"dni\": \"36789987\",\r\n        \"fechaIngreso\": \"2021-09-24T02:48:26.074+00:00\",\r\n        \"domicilio\": {\r\n            \"calle\": \"Milanesa\",\r\n            \"numero\": \"1234\",\r\n            \"localidad\": \"Resistencia\",\r\n            \"provincia\": \"Chaco\"\r\n        }\r\n    },\r\n    \"odontologo\": {\r\n        \"id\": 45,\r\n        \"nombre\": \"Ariel\",\r\n        \"apellido\": \"Bertotto\",\r\n        \"matricula\": 13666\r\n    }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/turno/modify",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "turno",
+                "modify"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "removeById",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": null
+          },
+          "response": []
+        },
+        {
+          "name": "getByPacienteId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/turno/getBy?pac=44",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "turno",
+                "getBy"
+              ],
+              "query": [
+                {
+                  "key": "pac",
+                  "value": "44"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getByOdontologoId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/turno/getBy?odont=45",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "turno",
+                "getBy"
+              ],
+              "query": [
+                {
+                  "key": "odont",
+                  "value": "45"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getByPacienteIdAndOdontologoId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/turno/getBy?pac=44&odont=4",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "turno",
+                "getBy"
+              ],
+              "query": [
+                {
+                  "key": "pac",
+                  "value": "44"
+                },
+                {
+                  "key": "odont",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "username",
+              "value": "agus@dh.com",
+              "type": "text"
+            },
+            {
+              "key": "password",
+              "value": "pass",
+              "type": "text"
+            }
+          ],
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "login",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "login"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

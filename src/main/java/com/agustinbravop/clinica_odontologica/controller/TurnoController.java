@@ -1,7 +1,6 @@
 package com.agustinbravop.clinica_odontologica.controller;
 
 import com.agustinbravop.clinica_odontologica.dto.TurnoDTO;
-import com.agustinbravop.clinica_odontologica.service.PacienteService;
 import com.agustinbravop.clinica_odontologica.service.TurnoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -46,7 +45,7 @@ public class TurnoController {
             @RequestParam(required = false) Long pacId,
             @RequestParam(required = false) Long odontId
     ) {
-        if(pacId == null && odontId == null){
+        if (pacId == null && odontId == null) {
             return ResponseEntity.badRequest().build();
         }
 

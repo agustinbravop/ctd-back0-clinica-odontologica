@@ -19,21 +19,21 @@ public class DataLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        String hashedPass = encoder.encode("pass");
+        String hashedPass = encoder.encode("admin");
 
         userRepository.deleteAll();
 
         userRepository.save(new User(
-                "Agustín Bravo",
-                "agustinbravop",
-                "agus@dh.com",
+                "Superusuario",
+                "admin",
+                "admin@admin.com",
                 hashedPass,
                 UserRole.ADMIN)
         );
         userRepository.save(new User(
-                "Ariana Bittel",
-                "ariana_bittel",
-                "ari@dh.com",
+                "Agustín Bravo",
+                "agustinbravop",
+                "agus@dh.com",
                 hashedPass,
                 UserRole.USER)
         );

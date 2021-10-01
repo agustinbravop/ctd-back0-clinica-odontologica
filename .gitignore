@@ -3,9 +3,6 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-logfile.log
-ctd-back1-clinica-odontologica_DER.png
-
 ### STS ###
 .apt_generated
 .classpath
