@@ -1,5 +1,7 @@
-﻿Curso: Certified Tech Developer (by Digital House)
-Materia: Backend I Alumno: Agustín Nicolás Bravo Pérez Camada 2 durante Agosto/Septiembre 2021
+﻿Curso: Certified Tech Developer (by Digital House)  
+Materia: Backend I  
+Alumno: Agustín Nicolás Bravo Pérez.  
+Camada 2 durante Agosto/Septiembre 2021
 
 # Proyecto Final Clinica Odontológica
 
@@ -10,10 +12,12 @@ Spring Boot** durante el transcurso de la cursada. Las dependencias se encuentra
 
 Para examinarlo rápidamente:
 Usa un sistema de login: con el usuario admin@admin.com y la contraseña *admin* se tiene acceso a todos los endpoints,
-que se pueden encontrar en el archivo *endpoints_postman.json*, un JSON que se puede importar a Postman para tenerlos
+que se pueden encontrar en el archivo *endpoints_postman.json*, que es un JSON que se puede importar a Postman para tenerlos
 cargados (antes de cualquier petición, primero ejecutar el GET de login y segundo el POST de login, luego tenemos acceso
-libre ya que la JSESSIONID queda guardada). También desde el navegador se ofrece una vista sencilla que permite un ABM
-de turnos, pacientes y odontologos. La base de datos será creada en la dirección *jdbc:h2:~
+libre ya que la JSESSIONID queda guardada).  
+También desde el navegador se ofrece una vista sencilla que permite un ABM
+de turnos, pacientes y odontologos.  
+La base de datos será creada en la dirección *jdbc:h2:~
 /ctd_back1_clinica_odontologica*.
 
 ## Partes del Proyecto
