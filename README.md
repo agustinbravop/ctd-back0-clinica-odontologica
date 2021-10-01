@@ -44,8 +44,7 @@ información con los `model`.
 
 La capa `controller` se encarga de conectar al `service` con las peticiones que reciba desde el cliente. Con los
 distintos *@RequestMapping* mapeamos el Controller a los distintos **endpoints** de la API, y con *ResponseEntity*
-devolvemos respuestas HTTP. En *peticiones_postman.json* están los distintos endpoints con sus formatos, escrito en **
-Postman**.
+devolvemos respuestas HTTP. En *peticiones_postman.json* están los distintos endpoints con sus formatos, escrito en **Postman**.
 
 ### Vistas
 
