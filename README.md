@@ -5,8 +5,7 @@ Camada 2 durante Agosto/Septiembre 2021
 
 # Proyecto Final Clinica Odontológica
 
-El proyecto es una API RESTful que ofrece un ABM de pacientes, odontologos y turnos. Fue armado con  **Maven** y **
-Spring Boot** durante el transcurso de la cursada. Las dependencias se encuentran en el *pom.xml*.
+El proyecto es una API RESTful que ofrece un ABM de pacientes, odontologos y turnos. Fue armado con  **Maven** y **Spring Boot** durante el transcurso de la cursada. Las dependencias se encuentran en el *pom.xml*.
 
 ## Overview
 
