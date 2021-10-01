@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
 
-public class OdontologoMappingDtoTest {
+public class OdontologoDtoMappingTest {
 
     private final ModelMapper mapper = new ApplicationConfig().getModelMapper();
 
@@ -29,7 +29,7 @@ public class OdontologoMappingDtoTest {
         return odontoDTO;
     }
 
-    private void assertDeepEquality(Odontologo odonto, OdontologoDTO odontoDTO) {
+    static public void assertOdontologoMappingIsCorrect(Odontologo odonto, OdontologoDTO odontoDTO) {
         Assertions.assertEquals(odonto.getId(), odontoDTO.getId());
         Assertions.assertEquals(odonto.getNombre(), odontoDTO.getNombre());
         Assertions.assertEquals(odonto.getApellido(), odontoDTO.getApellido());
@@ -41,7 +41,7 @@ public class OdontologoMappingDtoTest {
         Odontologo odonto = getSampleOdontologo();
         OdontologoDTO odontoDTO = mapper.map(odonto, OdontologoDTO.class);
 
-        assertDeepEquality(odonto, odontoDTO);
+        assertOdontologoMappingIsCorrect(odonto, odontoDTO);
     }
 
     @Test
@@ -49,6 +49,6 @@ public class OdontologoMappingDtoTest {
         OdontologoDTO odontoDTO = getSampleOdontologoDTO();
         Odontologo odonto = mapper.map(odontoDTO, Odontologo.class);
 
-        assertDeepEquality(odonto, odontoDTO);
+        assertOdontologoMappingIsCorrect(odonto, odontoDTO);
     }
 }

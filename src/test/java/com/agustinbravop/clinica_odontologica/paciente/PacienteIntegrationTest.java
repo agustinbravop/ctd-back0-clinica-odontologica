@@ -2,31 +2,26 @@ package com.agustinbravop.clinica_odontologica.paciente;
 
 import com.agustinbravop.clinica_odontologica.dto.DomicilioDTO;
 import com.agustinbravop.clinica_odontologica.dto.PacienteDTO;
-import com.agustinbravop.clinica_odontologica.model.Paciente;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import org.junit.jupiter.api.*;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import java.text.SimpleDateFormat;
-
-@RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc(addFilters = false)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class PacienteIntegrationTest {
     @Autowired private MockMvc mockMvc;
+
     private final ObjectWriter writer = new ObjectMapper()
             .configure(SerializationFeature.WRAP_ROOT_VALUE, false)
             .writer();
@@ -34,7 +29,7 @@ public class PacienteIntegrationTest {
 
     static private PacienteDTO samplePacDTO;
 
-    private void assertFieldsEquality(PacienteDTO pac, PacienteDTO pacDTO) {
+    static public void assertPropertiesEquality(PacienteDTO pac, PacienteDTO pacDTO) {
         Assertions.assertEquals(pac.getId(), pacDTO.getId());
         Assertions.assertEquals(pac.getNombre(), pacDTO.getNombre());
         Assertions.assertEquals(pac.getApellido(), pacDTO.getApellido());
@@ -47,7 +42,7 @@ public class PacienteIntegrationTest {
     }
 
     @BeforeAll
-    static void loadTestingData() {
+    static void loadSamplePacDTO() {
         DomicilioDTO dom = new DomicilioDTO();
         dom.setCalle("Sarmiento");
         dom.setNumero("2049");
@@ -98,7 +93,7 @@ public class PacienteIntegrationTest {
         String responseJson = result.getResponse().getContentAsString();
         PacienteDTO responseObject = mapper.readValue(responseJson, PacienteDTO.class);
 
-        assertFieldsEquality(samplePacDTO, responseObject);
+        assertPropertiesEquality(samplePacDTO, responseObject);
     }
 
     @Test
@@ -119,7 +114,7 @@ public class PacienteIntegrationTest {
         String responseJson = result.getResponse().getContentAsString();
         PacienteDTO responseObject = mapper.readValue(responseJson, PacienteDTO.class);
 
-        assertFieldsEquality(samplePacDTO, responseObject);
+        assertPropertiesEquality(samplePacDTO, responseObject);
     }
 
     @Test
