@@ -15,6 +15,18 @@ public class PacienteDtoMappingTest {
 
     private final ModelMapper mapper = new ApplicationConfig().getModelMapper();
 
+    static public void assertPacienteMappingIsCorrect(Paciente pac, PacienteDTO pacDTO) {
+        Assertions.assertEquals(pac.getId(), pacDTO.getId());
+        Assertions.assertEquals(pac.getNombre(), pacDTO.getNombre());
+        Assertions.assertEquals(pac.getApellido(), pacDTO.getApellido());
+        Assertions.assertEquals(pac.getDni(), pacDTO.getDni());
+
+        Assertions.assertEquals(pac.getDomicilio().getCalle(), pacDTO.getDomicilio().getCalle());
+        Assertions.assertEquals(pac.getDomicilio().getNumero(), pacDTO.getDomicilio().getNumero());
+        Assertions.assertEquals(pac.getDomicilio().getLocalidad(), pacDTO.getDomicilio().getLocalidad());
+        Assertions.assertEquals(pac.getDomicilio().getProvincia(), pacDTO.getDomicilio().getProvincia());
+    }
+
     private Paciente getSamplePaciente() {
         return new Paciente(
                 2L,
@@ -46,18 +58,6 @@ public class PacienteDtoMappingTest {
         pDTO.setFechaIngreso(new Date());
         pDTO.setDomicilio(dDTO);
         return pDTO;
-    }
-
-    static public void assertPacienteMappingIsCorrect(Paciente pac, PacienteDTO pacDTO) {
-        Assertions.assertEquals(pac.getId(), pacDTO.getId());
-        Assertions.assertEquals(pac.getNombre(), pacDTO.getNombre());
-        Assertions.assertEquals(pac.getApellido(), pacDTO.getApellido());
-        Assertions.assertEquals(pac.getDni(), pacDTO.getDni());
-
-        Assertions.assertEquals(pac.getDomicilio().getCalle(), pacDTO.getDomicilio().getCalle());
-        Assertions.assertEquals(pac.getDomicilio().getNumero(), pacDTO.getDomicilio().getNumero());
-        Assertions.assertEquals(pac.getDomicilio().getLocalidad(), pacDTO.getDomicilio().getLocalidad());
-        Assertions.assertEquals(pac.getDomicilio().getProvincia(), pacDTO.getDomicilio().getProvincia());
     }
 
     @Test

@@ -20,14 +20,13 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @AutoConfigureMockMvc(addFilters = false)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class PacienteIntegrationTest {
-    @Autowired private MockMvc mockMvc;
-
+    static private PacienteDTO samplePacDTO;
     private final ObjectWriter writer = new ObjectMapper()
             .configure(SerializationFeature.WRAP_ROOT_VALUE, false)
             .writer();
     private final ObjectMapper mapper = new ObjectMapper();
-
-    static private PacienteDTO samplePacDTO;
+    @Autowired
+    private MockMvc mockMvc;
 
     static public void assertPropertiesEquality(PacienteDTO pac, PacienteDTO pacDTO) {
         Assertions.assertEquals(pac.getId(), pacDTO.getId());
@@ -65,11 +64,11 @@ public class PacienteIntegrationTest {
         String requestJson = writer.writeValueAsString(samplePacDTO);
 
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders
-                        .post("/paciente/add")
-                        .characterEncoding("UTF-8")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(requestJson)
-                ).andDo(MockMvcResultHandlers.print())
+                .post("/paciente/add")
+                .characterEncoding("UTF-8")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(requestJson)
+        ).andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn();
 

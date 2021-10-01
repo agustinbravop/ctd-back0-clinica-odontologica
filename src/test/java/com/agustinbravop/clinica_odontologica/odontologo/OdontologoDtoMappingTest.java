@@ -11,6 +11,13 @@ public class OdontologoDtoMappingTest {
 
     private final ModelMapper mapper = new ApplicationConfig().getModelMapper();
 
+    static public void assertOdontologoMappingIsCorrect(Odontologo odonto, OdontologoDTO odontoDTO) {
+        Assertions.assertEquals(odonto.getId(), odontoDTO.getId());
+        Assertions.assertEquals(odonto.getNombre(), odontoDTO.getNombre());
+        Assertions.assertEquals(odonto.getApellido(), odontoDTO.getApellido());
+        Assertions.assertEquals(odonto.getMatricula(), odontoDTO.getMatricula());
+    }
+
     private Odontologo getSampleOdontologo() {
         return new Odontologo(
                 7L,
@@ -27,13 +34,6 @@ public class OdontologoDtoMappingTest {
         odontoDTO.setApellido("Bravo");
         odontoDTO.setMatricula(54321);
         return odontoDTO;
-    }
-
-    static public void assertOdontologoMappingIsCorrect(Odontologo odonto, OdontologoDTO odontoDTO) {
-        Assertions.assertEquals(odonto.getId(), odontoDTO.getId());
-        Assertions.assertEquals(odonto.getNombre(), odontoDTO.getNombre());
-        Assertions.assertEquals(odonto.getApellido(), odontoDTO.getApellido());
-        Assertions.assertEquals(odonto.getMatricula(), odontoDTO.getMatricula());
     }
 
     @Test

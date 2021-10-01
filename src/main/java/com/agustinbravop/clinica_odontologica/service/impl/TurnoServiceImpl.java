@@ -85,7 +85,7 @@ public class TurnoServiceImpl implements TurnoService {
         if (prevTurno == null) {
             throw new ResourceNotFoundException("No existe turno con id: " + turnoDTO.getId());
         }
-        if(turnoDTO.getFecha() == null){
+        if (turnoDTO.getFecha() == null) {
             turnoDTO.setFecha(prevTurno.getFecha());
         }
 

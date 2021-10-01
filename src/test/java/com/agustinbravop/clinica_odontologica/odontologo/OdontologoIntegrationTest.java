@@ -19,14 +19,13 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @AutoConfigureMockMvc(addFilters = false)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class OdontologoIntegrationTest {
-    @Autowired private MockMvc mockMvc;
-
+    static private OdontologoDTO sampleOdontDTO;
     private final ObjectWriter writer = new ObjectMapper()
             .configure(SerializationFeature.WRAP_ROOT_VALUE, false)
             .writer();
     private final ObjectMapper mapper = new ObjectMapper();
-
-    static private OdontologoDTO sampleOdontDTO;
+    @Autowired
+    private MockMvc mockMvc;
 
     static public void assertPropertiesEquality(OdontologoDTO pac, OdontologoDTO pacDTO) {
         Assertions.assertEquals(pac.getId(), pacDTO.getId());

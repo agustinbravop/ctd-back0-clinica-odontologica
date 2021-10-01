@@ -57,7 +57,7 @@ public class PacienteServiceImpl implements PacienteService {
         if (prevPaciente == null) {
             throw new ResourceNotFoundException("No existe paciente con id: " + pacienteDTO.getId());
         }
-        if(pacienteDTO.getFechaIngreso() == null){
+        if (pacienteDTO.getFechaIngreso() == null) {
             pacienteDTO.setFechaIngreso(prevPaciente.getFechaIngreso());
         }
 
