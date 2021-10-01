@@ -37,7 +37,9 @@ public class PacienteServiceImpl implements PacienteService {
 
     @Override
     public PacienteDTO getByDni(String dni) {
-        Paciente paciente = pacienteRepository.findByDni(dni);
+        Paciente paciente = pacienteRepository.findByDni(dni)
+                .orElseThrow(() -> new ResourceNotFoundException("No se encuentra el DNI solicitado"));
+
         return mapper.map(paciente, PacienteDTO.class);
     }
 
@@ -83,9 +85,11 @@ public class PacienteServiceImpl implements PacienteService {
         if (paciente.getFechaIngreso() == null) {
             paciente.setFechaIngreso(new Date());
         }
-
         if (paciente.getId() != null) {
             throw new BadRequestException("No se puede crear pacientes con un id ya asignado.");
+        }
+        if (pacienteRepository.findByDni(paciente.getDni()).isPresent()) {
+            throw new BadRequestException("No se puede crear pacientes con un DNI ya registrado.");
         }
 
         paciente = pacienteRepository.save(paciente);

@@ -27,6 +27,8 @@ function submitOdontologoModify(e, form){
             setTimeout(() => {
                 location.reload();
             }, 1000)
+        } else {
+            res.text().then(msg => alert(msg));
         }
     })
     .catch(error => alert(error))

@@ -41,8 +41,9 @@ function submitTurnoModify(e, form){
             setTimeout(() => {
                 location.reload();
             }, 1000)
+        } else {
+            res.text().then(msg => alert(msg));
         }
-        return res.json();
     })
     .catch(error => alert(error))
 }
