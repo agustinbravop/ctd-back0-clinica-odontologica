@@ -1,7 +1,9 @@
-function buildJsonFromPacienteAdd(form){
+function buildJsonFromPacienteModify(form){
     const object = { domicilio: {} };
     const formData = new FormData(form);
 
+    // modifyId es el name de una tag select
+    object.id = form.modifyId.value
     object.nombre = formData.get("nombre")
     object.apellido = formData.get("apellido")
     object.dni = formData.get("dni")
@@ -9,15 +11,16 @@ function buildJsonFromPacienteAdd(form){
     object.domicilio.numero = formData.get("domicilioNumero")
     object.domicilio.localidad = formData.get("domicilioLocalidad")
     object.domicilio.provincia = formData.get("domicilioProvincia")
+
     return JSON.stringify(object);
 }
 
-function submitPacienteAdd(e, form){
+function submitPacienteModify(e, form){
     e.preventDefault();
-    const json = buildJsonFromPacienteAdd(form)
+    const json = buildJsonFromPacienteModify(form)
 
-    fetch("http://localhost:8080/paciente/add", {
-        method: "POST",
+    fetch("http://localhost:8080/paciente/modify", {
+        method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },
@@ -35,8 +38,7 @@ function submitPacienteAdd(e, form){
     .catch(error => console.log(error))
 }
 
-const pacienteAddForm = document.getElementById("pacienteAdd");
-pacienteAddForm.addEventListener("submit", e => {
-    submitPacienteAdd(e, pacienteAddForm);
-
+const pacienteModifyForm = document.getElementById("pacienteModify");
+pacienteModifyForm.addEventListener("submit", e => {
+    submitPacienteModify(e, pacienteModifyForm);
 })

@@ -1,19 +1,22 @@
-function buildJsonFromOdontologoAdd(form){
+function buildJsonFromOdontologoModify(form){
     const object = {};
     const formData = new FormData(form);
 
+    // modifyId es el name de una tag select
+    object.id = form.modifyId.value
     object.nombre = formData.get("nombre")
     object.apellido = formData.get("apellido")
     object.matricula = formData.get("matricula")
+
     return JSON.stringify(object);
 }
 
-function submitOdontologoAdd(e, form){
+function submitOdontologoModify(e, form){
     e.preventDefault();
-    const json = buildJsonFromOdontologoAdd(form)
+    const json = buildJsonFromOdontologoModify(form)
 
-    fetch("http://localhost:8080/odontologo/add", {
-        method: "POST",
+    fetch("http://localhost:8080/odontologo/modify", {
+        method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },
@@ -31,7 +34,7 @@ function submitOdontologoAdd(e, form){
     .catch(error => console.log(error))
 }
 
-const odontologoAddForm = document.getElementById("odontologoAdd");
-odontologoAddForm.addEventListener("submit", e => {
-    submitOdontologoAdd(e, odontologoAddForm);
+const odontologoModifyForm = document.getElementById("odontologoModify");
+odontologoModifyForm.addEventListener("submit", e => {
+    submitOdontologoModify(e, odontologoModifyForm);
 })
