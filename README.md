@@ -16,8 +16,7 @@ cargados (antes de cualquier petición, primero ejecutar el GET de login y segun
 libre ya que la JSESSIONID queda guardada).  
 También desde el navegador se ofrece una vista sencilla que permite un ABM
 de turnos, pacientes y odontologos.  
-La base de datos será creada en la dirección *jdbc:h2:~
-/ctd_back1_clinica_odontologica*.
+La base de datos será creada en la dirección *jdbc:h2:~/ctd_back1_clinica_odontologica*.
 
 ## Partes del Proyecto
 
