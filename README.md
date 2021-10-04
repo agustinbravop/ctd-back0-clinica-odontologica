@@ -1,6 +1,6 @@
 ﻿Curso: Certified Tech Developer (by Digital House)  
 Materia: Backend I  
-Alumno: Agustín Nicolás Bravo Pérez.  
+Alumno: Agustín Nicolás Bravo Pérez  
 Camada 2 durante Agosto/Septiembre 2021
 
 # Proyecto Final Clinica Odontológica
